@@ -1,0 +1,58 @@
+package org.test.canema.config;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.test.canema.entity.Movies;
+import org.test.canema.repository.MovieRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Configuration
+public class DataSeeder {
+
+    @Bean
+    public CommandLineRunner init(MovieRepository movieRepository) {
+
+        return args -> {
+            if (movieRepository.count() == 0) {
+                Movies movie1 = new Movies();
+                movie1.setTitle("Avengers Endgame");
+                movie1.setDescription("After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.");
+
+
+                movie1.setShowTime(List.of(
+                        LocalDateTime.of(2026, 7, 23, 14, 0),
+                        LocalDateTime.of(2026, 7, 23, 18, 30),
+                        LocalDateTime.of(2026, 7, 23, 21, 15)
+                ));
+
+                movie1.setDurationMinutes(181);
+                movie1.setHallName("R2");
+                movie1.setTotalSeats(25);
+                movie1.setPrice(1200L);
+                movie1.setImageURL("https://images5.alphacoders.com/998/thumb-1920-998470.jpg");
+
+                Movies movie2 = new Movies();
+                movie2.setTitle("The Godfather");
+                movie2.setDescription("The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.");
+
+
+                movie2.setShowTime(List.of(
+                        LocalDateTime.of(2026, 8, 2, 17, 30),
+                        LocalDateTime.of(2026, 8, 2, 20, 0)
+                ));
+
+                movie2.setDurationMinutes(175);
+                movie2.setHallName("R5");
+                movie2.setTotalSeats(35);
+                movie2.setPrice(1000L);
+                movie2.setImageURL("https://images5.alphacoders.com/131/thumb-1920-1315822.jpg");
+
+                movieRepository.save(movie1);
+                movieRepository.save(movie2);
+            }
+        };
+    }
+}

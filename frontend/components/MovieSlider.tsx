@@ -1,0 +1,100 @@
+'use client';
+
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+interface MovieData {
+  id: number;
+  title: string;
+  showTime: string;
+  description: string;
+  imageURL: string;
+  durationMinutes: number;
+  hallName: string;
+  totalSeats: number;
+  price: number;
+}
+
+
+
+export default function MovieSlider({ movies = [] }: { movies: MovieData[] }) {
+  if (!Array.isArray(movies) || movies.length === 0) return null;
+  movies.map((item)=> console.log(item.showTime))
+  return (
+    <div className="w-full h-full relative">
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        loop={movies.length > 1}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        navigation={true}
+        className="w-full h-full [&_.swiper-slide]:h-full [&_.swiper-slide]:w-full"
+      >
+        {movies.map((movie: MovieData) => (
+          <SwiperSlide key={movie.id}>
+            <div className="relative w-full h-full flex items-end justify-start overflow-hidden">
+              
+              {/* Arka Plan Görseli */}
+              <img
+                src={movie.imageURL}
+                alt={movie.title}
+                className="absolute inset-0 w-full h-full object-cover z-0"
+              />
+
+            
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+
+              
+              <div className="relative z-20 p-8 md:p-16 max-w-5xl text-left text-white">
+                
+               
+                <h2 className="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg tracking-tight">
+                  {movie.title}
+                </h2>
+
+               
+                <p className="text-gray-200 text-lg md:text-xl mb-6 line-clamp-3 leading-relaxed max-w-2xl">
+                  {movie.description}
+                </p>
+
+                
+
+                <div className="flex flex-wrap items-center gap-4 md:gap-6 text-base md:text-lg font-medium text-gray-200">
+                  <span className="bg-white text-black font-bold px-4 py-1.5 rounded-md text-base">
+                    {movie.hallName}
+                  </span>
+                  <span>{movie.durationMinutes} Min</span>
+                  <span>{movie.price} $</span>
+                  <span className="text-gray-300">
+                    {new Date(movie.showTime).toLocaleString('tr-TR', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })}
+                  </span>
+
+                  
+                  <button className="ml-2 bg-white hover:bg-gray-200 text-black font-bold text-base md:text-lg py-2.5 px-6 rounded-md transition-all duration-200 shadow-md hover:scale-105 cursor-pointer">
+                    Buy Tickets
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
