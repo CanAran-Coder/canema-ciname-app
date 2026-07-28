@@ -1,6 +1,5 @@
 package org.test.canema.config;
 
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -19,7 +18,6 @@ import org.test.canema.util.jwt.JwtService;
 import java.io.IOException;
 import java.util.List;
 
-
 @RequiredArgsConstructor
 @Component
 public class JwtFilter extends OncePerRequestFilter {
@@ -30,32 +28,44 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");
-        String token  = "";
+        String token = null;
+
+
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
-        }else if(request.getCookies() != null){
+        }
+
+        else if (request.getCookies() != null) {
             for (Cookie cookie : request.getCookies()) {
-                if (cookie.getName().equals("jwtToken")) {
+                if ("jwtToken".equals(cookie.getName())) {
                     token = cookie.getValue();
                     break;
                 }
             }
+        }
 
 
-            if (jwtService.isTokenValid(token)){
-                String email = jwtService.getEmail(token);
-                if(email != null && SecurityContextHolder.getContext().getAuthentication() == null){
+        if (token != null && !token.isBlank()) {
+            try {
+                if (jwtService.isTokenValid(token)) {
+                    String email = jwtService.getEmail(token);
+                    if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-                    User user = userRepository.findByEmail(email).orElse(null);
-                    if(user !=null){
-                        var authorities = List.of(new SimpleGrantedAuthority(user.getRole().name()));
-                        var authenticationToken = new UsernamePasswordAuthenticationToken(email,null,authorities);
-                        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                        User user = userRepository.findByEmail(email).orElse(null);
+                        if (user != null) {
+                            var authorities = List.of(new SimpleGrantedAuthority(user.getRole().name()));
+                            var authenticationToken = new UsernamePasswordAuthenticationToken(email, null, authorities);
+                            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                        }
                     }
-
                 }
+            } catch (Exception e) {
+
+                logger.error("JWT Verification failed: " + e.getMessage());
             }
         }
-        filterChain.doFilter(request,response);
+
+
+        filterChain.doFilter(request, response);
     }
 }

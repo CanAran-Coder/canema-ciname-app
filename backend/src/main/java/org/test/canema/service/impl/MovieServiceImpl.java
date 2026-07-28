@@ -51,4 +51,16 @@ public class MovieServiceImpl implements MovieService {
 
 
     }
+
+    @Override
+    public ResponseEntity<String> addMovie(Movies movies) {
+
+            var response = movieRepository.save(movies);
+            if(response.getId() != null) {
+                return ResponseEntity.status(HttpStatus.CREATED).build();
+
+            }
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+    }
 }

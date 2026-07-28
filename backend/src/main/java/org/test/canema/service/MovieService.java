@@ -9,4 +9,5 @@ public interface MovieService {
     public List<Movies> getMovies();
     public List<Movies> getMoviesByDate(String Date);
     public ResponseEntity<String> deleteMovie(Long id);
+    public ResponseEntity<String> addMovie(Movies movies);
 }
