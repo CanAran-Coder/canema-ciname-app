@@ -7,6 +7,7 @@ async function HomeSlider() {
             throw new Error("Failed to fetch data");
         }
         const movies = await res.json();
+        console.log(movies)
         return movies;
     }
     const movies = await fetchMovies();

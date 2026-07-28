@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 
@@ -10,7 +10,6 @@ import 'swiper/css/navigation';
 interface MovieData {
   id: number;
   title: string;
-  showTime: string;
   description: string;
   imageURL: string;
   durationMinutes: number;
@@ -23,7 +22,6 @@ interface MovieData {
 
 export default function MovieSlider({ movies = [] }: { movies: MovieData[] }) {
   if (!Array.isArray(movies) || movies.length === 0) return null;
-  movies.map((item)=> console.log(item.showTime))
   return (
     <div className="w-full h-full relative">
       <Swiper
@@ -42,7 +40,7 @@ export default function MovieSlider({ movies = [] }: { movies: MovieData[] }) {
           <SwiperSlide key={movie.id}>
             <div className="relative w-full h-full flex items-end justify-start overflow-hidden">
               
-              {/* Arka Plan Görseli */}
+             
               <img
                 src={movie.imageURL}
                 alt={movie.title}
@@ -74,13 +72,7 @@ export default function MovieSlider({ movies = [] }: { movies: MovieData[] }) {
                   <span>{movie.durationMinutes} Min</span>
                   <span>{movie.price} $</span>
                   <span className="text-gray-300">
-                    {new Date(movie.showTime).toLocaleString('tr-TR', {
-                      day: '2-digit',
-                      month: '2-digit',
-                      year: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit'
-                    })}
+                    Today
                   </span>
 
                   

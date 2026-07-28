@@ -35,7 +35,7 @@ public class MovieController {
         return movieService.getMoviesByDate(date);
     }
 
-    @PreAuthorize("hasRole('CUSTOMER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/deleteMovie/{id}")
 
     public ResponseEntity<String> deleteMovie(@PathVariable Long id){
