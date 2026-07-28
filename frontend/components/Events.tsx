@@ -59,13 +59,16 @@ function Events() {
     return (<>
 
 
-        <div className="grid grid-cols-[0.75fr_2fr] w-full h-[120vh] bg-black">
-            <div className="p-6 ">
+        <div className="grid grid-cols-[0.75fr_2fr] w-full h-[120vh] bg-black items-start">
+            <div className="p-6 h-full">
                 <div className="w-full h-full bg-white customShadow rounded grid grid-rows-14">
                     {days.map((item) => <button key={item} onClick={() => setSelectedDay(item)} className="text-xl flex justify-start items-center pl-5 gap-2 cursor-pointer hover:bg-gray-100 rounded text-2xl"><FaCalendarDays className="text-2xl" />{new Date(`${item}T00:00:00`).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', weekday: 'long' })}</button>)}
                 </div>
             </div>
-            <div className="grid grid-rows-3 border-t border-white p-2">
+
+
+
+            <div className="grid grid-rows-3 border-t border-white p-2 h-full overflow-y-auto">
 
 
                 {movies?.map((item)=>(<Event_Movie_Item key={item.id} data={item} />))}

@@ -33,9 +33,9 @@ function Event_Movie_Item({data}:{data:MovieData}) {
                 <RxCross1 className='text-white text-xl font-bold size-6 ' />
             </div>
 
-            <div className='flex flex-col  items-center '>
+            <div className='flex flex-col  items-center gap-2'>
                 <h1 className='text-white text-2xl border-b border-white'>{data.title}</h1>
-                <div className='w-full h-full relative customShadow'><Image src={data.imageURL} alt={data.title} fill></Image></div>
+                <div className='w-full relative customShadow h-full rounded '><Image fill src={data.imageURL} className="customShadow rounded object-cover" alt={data.title}></Image></div>
             </div>
 
 

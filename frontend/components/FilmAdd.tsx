@@ -1,7 +1,9 @@
 'use client'
 import MovieTimeButton from "@/UI/MovieTimeButton";
+import { RxCross1 } from "react-icons/rx";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { refreshPath } from "@/utils/revalidatePath";
 
 
 
@@ -57,6 +59,7 @@ function FilmAdd({ setLight, setLoading, loading }: { setLight: any, loading: bo
             
             if(backendRequest.ok){
                 toast.success("Movie Added Successfully!")
+                refreshPath("/")
             }
             else{
                 toast.error("Backend Error!")
@@ -87,7 +90,9 @@ function FilmAdd({ setLight, setLoading, loading }: { setLight: any, loading: bo
 
             <div className="bg-[rgba(0,0,0,0.7)] z-50 inset-0 fixed w-screen h-screen flex  flex-col justify-center items-center">
 
-                <form onSubmit={handleSubmit} className="border-2 flex flex-col border-white rounded w-200 h-200 p-10">
+                <form onSubmit={handleSubmit} className="border-2 flex flex-col border-white rounded w-200 h-200 p-10 relative">
+                    <RxCross1 onClick={()=> setLight(false)} className="absolute top-5 right-5 bg-white text-black text-4xl cursor-pointer customShadow rounded hover:scale-[1.05]" />
+
                     <h1 className="text-white text-4xl text-center border-b-2" >Movie Add</h1>
                     <div className="w-full h-125 grid grid-cols-[1fr_4fr] content-start p-2 items-center gap-x-1 gap-y-2">
 

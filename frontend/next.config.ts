@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images5.alphacoders.com',
       },
-
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
   },
 };

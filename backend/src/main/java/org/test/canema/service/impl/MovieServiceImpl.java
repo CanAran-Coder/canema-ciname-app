@@ -1,6 +1,8 @@
 package org.test.canema.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,9 +27,11 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
+    @Cacheable(value = "allMovies")
     public List<Movies> getMovies() {
         return movieRepository.findAll();
     }
+    @Cacheable(value = "moviesByDate",key = "#dateStr")
     public List<Movies> getMoviesByDate(String dateStr) {
 
         LocalDate date = LocalDate.parse(dateStr);
@@ -40,6 +44,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     @Transactional
+    @CacheEvict(value = {"moviesByDate","allMovies"},allEntries = true)
     public ResponseEntity<String> deleteMovie(Long id) {
         Long response =  movieRepository.removeById(id);
         if (response == 0) {
@@ -53,6 +58,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
+    @CacheEvict(value = {"moviesByDate","allMovies"},allEntries = true)
     public ResponseEntity<String> addMovie(Movies movies) {
 
             var response = movieRepository.save(movies);
