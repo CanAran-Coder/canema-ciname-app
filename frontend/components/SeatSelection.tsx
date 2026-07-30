@@ -1,10 +1,24 @@
 'use client'
 import { RxCross2 } from "react-icons/rx";
+import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
-function SeatSelection({ setLight }: { setLight: any }) {
+interface MovieData {
+    id: number
+    title: string
+    description: string
+    durationMinutes: number
+    hallName: string
+    imageURL: string
+    price: number
+    totalSeats: number
+    showTime: string[]
+}
+
+function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData: MovieData, date: string }) {
     const router = useRouter();
     const user = useAuthStore(state => state.user)
     const [selectedSeats, setSelectedSeats] = useState<number[]>([])
@@ -27,8 +41,11 @@ function SeatSelection({ setLight }: { setLight: any }) {
     const vertical = 10
     const horizontal = 13
     const full = [1, 5, 8, 10]
+    const [fdate, time] = date.split("T");
+    const formattedDate = `${fdate} ${time.slice(0, 5)}`;
     function getSeats(vertical: number, horizontal: number, full: number[]) {
         let seats = []
+
         for (let i = 1; i <= vertical * horizontal; i++) {
             let status = full.includes(i) ? "FULL" : "EMPTY";
             seats.push({ id: i, status: status })
@@ -50,7 +67,7 @@ function SeatSelection({ setLight }: { setLight: any }) {
                                 <p className="text-2xl text-start flex items-center">Door</p>
                                 <p className="text-2xl justify-center items-center flex">Screen</p>
                                 <p></p>
-                                <button onClick={()=> setPaymentPage(prev => !prev)} className="absolute bottom-0 right-0 border-2 text-xl bg-black hover:brightness-125 cursor-pointer text-white rounded p-2 ">Go To Payment</button>
+                                <button onClick={() => setPaymentPage(prev => !prev)} className="absolute bottom-0 right-0 border-2 text-xl bg-black hover:brightness-125 cursor-pointer text-white rounded p-2 ">Go To Payment</button>
                             </div>
 
                             <div style={{
@@ -62,17 +79,56 @@ function SeatSelection({ setLight }: { setLight: any }) {
 
                         </div>
 
-                            
+
 
                     </div>
                 </>) : <>
-                
-                
-                
-                        
-                
-                
-                
+
+
+
+
+                    <form className="bg-white w-300 h-130 p-2 rounded customShadow grid grid-rows-2 gap-y-2 relative">
+                        <RxCross2 onClick={() => setLight(false)} className="absolute top-2 right-2 text-2xl cursor-pointer" />
+
+                        <div className="w-full h-full grid grid-cols-[1fr_3fr] gap-x-10 p-2 border-b-2">
+                            <div className=" h-full w-full   relative">
+                                <Image src={movieData.imageURL} className="rounded customShadow" fill alt={movieData.title} />
+                            </div>
+
+                            <div className="grid grid-rows-5 grid-cols-[auto_1fr] w-full h-full">
+                                <label className="text-2xl">Title:</label>
+                                <label className="text-2xl">{movieData.title}</label>
+                                <label className="text-2xl">Date:</label>
+                                <label className="text-2xl">{formattedDate}</label>
+                                <label className="text-2xl">Hall Name:</label>
+                                <label className="text-2xl">{movieData.hallName}</label>
+                                <label className="text-2xl">Seats:</label>
+                                <label className="text-2xl gap-x-2 flex">{selectedSeats.map((item, index) => <p key={index}>{item}</p>)}</label>
+                                <label className="text-2xl">Price:</label>
+                                <label className="text-2xl">{movieData.price * selectedSeats.length + "$"}</label>
+
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-[1fr_3fr] content-end gap-2 w-full h-full">
+                            <label className="text-black   text-2xl">Name On Card:</label>
+                            <input className="text-center border-2 text-xl text-black" name="holderName" />
+                            <label className="text-black   text-2xl">Card Number:</label>
+                            <input className="text-center border-2 text-xl text-black" name="cardNumber" />
+                            <label className="text-black   text-2xl">Date:</label>
+                            <div className="flex gap-x-2"> <input className="text-center border-2 text-xl text-black w-full" placeholder="Day" name="cardDay " /><input className="text-center border-2 text-xl text-black w-full" placeholder="Month" name="cardMonth" /></div>
+                            <label className="text-black  text-2xl">CVV:</label>
+                            <input className="text-center border-2 text-xl text-black" name="cardCVV" />
+                            <button className="col-span-2 bg-black text-white rounded h-10 cursor-pointer hover:scale-[1.01] duration-250 ease-in-out text-2xl">Pay:{selectedSeats.length * movieData.price}$</button>
+                        </div>
+
+
+
+
+
+                    </form>
+
+
                 </>}
 
 
