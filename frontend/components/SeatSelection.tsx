@@ -116,7 +116,7 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                             <label className="text-black   text-2xl">Card Number:</label>
                             <input className="text-center border-2 text-xl text-black" name="cardNumber" />
                             <label className="text-black   text-2xl">Date:</label>
-                            <div className="flex gap-x-2"> <input className="text-center border-2 text-xl text-black w-full" placeholder="Day" name="cardDay " /><input className="text-center border-2 text-xl text-black w-full" placeholder="Month" name="cardMonth" /></div>
+                            <div className="flex gap-x-2"> <input className="text-center border-2 text-xl text-black w-full" placeholder="Month" name="cardMonth " /><input className="text-center border-2 text-xl text-black w-full" placeholder="Year" name="cardYear" /></div>
                             <label className="text-black  text-2xl">CVV:</label>
                             <input className="text-center border-2 text-xl text-black" name="cardCVV" />
                             <button className="col-span-2 bg-black text-white rounded h-10 cursor-pointer hover:scale-[1.01] duration-250 ease-in-out text-2xl">Pay:{selectedSeats.length * movieData.price}$</button>

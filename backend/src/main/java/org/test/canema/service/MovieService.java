@@ -1,13 +1,13 @@
 package org.test.canema.service;
 
 import org.springframework.http.ResponseEntity;
-import org.test.canema.entity.Movies;
+import org.test.canema.entity.Movie;
 
 import java.util.List;
 
 public interface MovieService {
-    public List<Movies> getMovies();
-    public List<Movies> getMoviesByDate(String Date);
+    public List<Movie> getMovies();
+    public List<Movie> getMoviesByDate(String Date);
     public ResponseEntity<String> deleteMovie(Long id);
-    public ResponseEntity<String> addMovie(Movies movies);
+    public ResponseEntity<String> addMovie(Movie movie);
 }

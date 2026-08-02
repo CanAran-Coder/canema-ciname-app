@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Entity
@@ -13,25 +11,18 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Movies implements Serializable {
+public class Movie implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String title;
-    @Column(length = 1000)
+    @Column(length = 1000,nullable = false)
     private String description;
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(
-            name = "movie_show_times",
-            joinColumns = @JoinColumn(name = "movie_id")
-    )
-    private List<LocalDateTime> showTime;
+    @Column(nullable = false)
     private Integer durationMinutes;
-    private String hallName;
-    private Integer totalSeats;
-    private Long price;
+    @Column(nullable = false)
     private String imageURL;
     @Version
     private Long version;
