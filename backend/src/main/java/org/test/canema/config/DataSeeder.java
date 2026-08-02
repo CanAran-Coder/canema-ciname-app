@@ -22,7 +22,6 @@ public class DataSeeder {
 
 
                 movie1.setDurationMinutes(181);
-                movie1.setPrice(1200L);
                 movie1.setImageURL("https://images5.alphacoders.com/998/thumb-1920-998470.jpg");
 
                 Movie movie2 = new Movie();
@@ -34,7 +33,6 @@ public class DataSeeder {
 
                 movie2.setDurationMinutes(175);
 
-                movie2.setPrice(1000L);
                 movie2.setImageURL("https://images5.alphacoders.com/131/thumb-1920-1315822.jpg");
 
                 movieRepository.save(movie1);

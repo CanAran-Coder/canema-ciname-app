@@ -6,6 +6,7 @@ package org.test.canema.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize; // ✅ Spring Security paketi
 import org.springframework.web.bind.annotation.*;
+import org.test.canema.dto.response.MovieWithShowtimeResponse;
 import org.test.canema.entity.Movie;
 import org.test.canema.service.MovieService;
 
@@ -23,14 +24,10 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @PreAuthorize("permitAll")
-    @GetMapping("/getMovies")
-    public List<Movie> getMovies() {
-        return  movieService.getMovies();
-    }
+
     @PreAuthorize("permitAll")
     @GetMapping("/byDate/{date}")
-    public List<Movie> getMoviesByDate(@PathVariable String date) {
+    public List<MovieWithShowtimeResponse> getMoviesByDate(@PathVariable String date) {
         return movieService.getMoviesByDate(date);
     }
 
