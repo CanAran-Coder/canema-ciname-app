@@ -5,17 +5,22 @@ import { useAuthStore } from "@/store/useAuthStore";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { getHallInfo } from "@/actions/SeatLayout";
+
+interface ShowTime {
+    id: number,
+    startTime: string,
+    price: number,
+    hallName: string
+}
+
 
 interface MovieData {
-    id: number
-    title: string
-    description: string
-    durationMinutes: number
-    hallName: string
-    imageURL: string
-    price: number
-    totalSeats: number
-    showTime: string[]
+    title: string;
+    description: string;
+    imageURL: string;
+    durationMinutes: number;
+    ShowtimeResponse: ShowTime[];
 }
 
 function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData: MovieData, date: string }) {
@@ -23,6 +28,8 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
     const user = useAuthStore(state => state.user)
     const [selectedSeats, setSelectedSeats] = useState<number[]>([])
     const [paymentPage, setPaymentPage] = useState<boolean>(false)
+    const [hallInfo, setHallInfo] = useState<{ seats_per_row: number, total_rows: number } | null>(null);
+
 
     useEffect(() => {
         if (!user) {
@@ -30,16 +37,41 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
         }
     }, [user])
 
+    useEffect(()=>{
+        console.log("hallInfo updated:", hallInfo);
+    },[hallInfo])
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
+
+        async function fetchHallInfo() {
+            const timeOnly = date.includes("T") ? date.split("T")[1].slice(0, 5) : date;
+
+            const currentShowtime = movieData?.ShowtimeResponse?.find(st =>
+                st.startTime === date ||
+                st.startTime === timeOnly ||
+                st.startTime.includes(timeOnly) ||
+                date.endsWith(st.startTime)
+            );
+
+            if (currentShowtime?.hallName) {
+                const response = await getHallInfo(currentShowtime.hallName);
+                if (response) {
+                    setHallInfo(response);
+                }
+            }
+        }
+
+        fetchHallInfo();
 
         return () => {
             document.body.style.overflow = 'unset';
         };
-    }, []);
+    }, [date, movieData]);
 
-    const vertical = 10
-    const horizontal = 13
+
+
+
     const full = [1, 5, 8, 10]
     const [fdate, time] = date.split("T");
     const formattedDate = `${fdate} ${time.slice(0, 5)}`;
@@ -71,10 +103,10 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                             </div>
 
                             <div style={{
-                                gridTemplateColumns: `repeat(${vertical}, minmax(0, 1fr))`,
-                                gridTemplateRows: `repeat(${horizontal}, minmax(0, 1fr))`,
+                                gridTemplateColumns: `repeat(${hallInfo?.seats_per_row}, minmax(0, 1fr))`,
+                                gridTemplateRows: `repeat(${hallInfo?.total_rows}, minmax(0, 1fr))`,
                             }} className={`grid  w-full h-[80%]`}>
-                                {getSeats(vertical, horizontal, full).map((item) => <p onClick={() => item.status != "FULL" ? selectedSeats.includes(item.id) ? setSelectedSeats(prev => prev.filter(x => x !== item.id)) : setSelectedSeats(prev => [...prev, item.id]) : ""} key={item.id} className={`hover:brightness-125 w-full h-full border-1 ${item.status == "EMPTY" ? (selectedSeats.includes(item.id) ? "bg-purple-500" : "bg-green-400") : "bg-red-500"} flex justify-center items-center font-bold cursor-pointer`}>{item.id}</p>)}
+                                {getSeats(hallInfo?.total_rows || 10, hallInfo?.seats_per_row || 15, full).map((item) => <p onClick={() => item.status != "FULL" ? selectedSeats.includes(item.id) ? setSelectedSeats(prev => prev.filter(x => x !== item.id)) : setSelectedSeats(prev => [...prev, item.id]) : ""} key={item.id} className={`hover:brightness-125 w-full h-full border-1 ${item.status == "EMPTY" ? (selectedSeats.includes(item.id) ? "bg-purple-500" : "bg-green-400") : "bg-red-500"} flex justify-center items-center font-bold cursor-pointer`}>{item.id}</p>)}
                             </div>
 
                         </div>
@@ -101,11 +133,14 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                                 <label className="text-2xl">Date:</label>
                                 <label className="text-2xl">{formattedDate}</label>
                                 <label className="text-2xl">Hall Name:</label>
-                                <label className="text-2xl">{movieData.hallName}</label>
+                                <label className="text-2xl">{movieData.ShowtimeResponse.find(st => st.startTime.includes(date.length > 5 && date.includes('T') ? date.split('T')[1].slice(0, 5) : date) || date.includes(st.startTime))?.hallName ?? "Not Available"}</label>
                                 <label className="text-2xl">Seats:</label>
                                 <label className="text-2xl gap-x-2 flex">{selectedSeats.map((item, index) => <p key={index}>{item}</p>)}</label>
                                 <label className="text-2xl">Price:</label>
-                                <label className="text-2xl">{movieData.price * selectedSeats.length + "$"}</label>
+                                <label className="text-2xl">{(() => {
+                                    const currentShowtime = movieData.ShowtimeResponse.find(st => st.startTime.includes(date.length > 5 && date.includes('T') ? date.split('T')[1].slice(0, 5) : date) || date.includes(st.startTime))?.price || 0;
+                                    return (currentShowtime * selectedSeats.length).toFixed(2) + "$";
+                                })()}</label>
 
                             </div>
                         </div>
@@ -119,7 +154,7 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                             <div className="flex gap-x-2"> <input className="text-center border-2 text-xl text-black w-full" placeholder="Month" name="cardMonth " /><input className="text-center border-2 text-xl text-black w-full" placeholder="Year" name="cardYear" /></div>
                             <label className="text-black  text-2xl">CVV:</label>
                             <input className="text-center border-2 text-xl text-black" name="cardCVV" />
-                            <button className="col-span-2 bg-black text-white rounded h-10 cursor-pointer hover:scale-[1.01] duration-250 ease-in-out text-2xl">Pay:{selectedSeats.length * movieData.price}$</button>
+                            <button className="col-span-2 bg-black text-white rounded h-10 cursor-pointer hover:scale-[1.01] duration-250 ease-in-out text-2xl">Pay:{selectedSeats.length * (movieData.ShowtimeResponse.find(st => st.startTime === time)?.price || 0)}$</button>
                         </div>
 
 

@@ -5,6 +5,12 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { refreshPath } from "@/utils/revalidatePath";
 
+interface ShowTime{
+    id:number,
+    startTime:string,
+    price:number,
+    hallName:string
+}
 
 
 interface MovieData {
@@ -13,9 +19,7 @@ interface MovieData {
     description: string;
     imageURL: string;
     durationMinutes: number;
-    hallName: string;
-    totalSeats: number;
-    price: number;
+    ShowtimeResponse: ShowTime[];
 }
 
 
@@ -119,7 +123,7 @@ function FilmAdd({ setLight, setLoading, loading }: { setLight: any, loading: bo
                     <div className="grid grid-cols-[1fr_4fr] w-full h-full content-start">
                         <label className="text-white text-2xl">Times:</label>
                         <div className="w-full h-full grid grid-cols-3 gap-2 overflow-y-auto min-h-50 p-2 max-h-50">
-                            {showTimes.map((item, index) => <MovieTimeButton key={index} time={item} />)}
+                            {showTimes.map((item, index) => <p className="text-white text-xl" key={index}>{item}</p>)}
                         </div>
 
                     </div>

@@ -3,9 +3,23 @@ import SeatSelection from "@/components/SeatSelection";
 import { useState } from "react";
 import { CiClock2 } from "react-icons/ci";
 
+interface ShowTime{
+    id:number,
+    startTime:string,
+    price:number,
+    hallName:string
+}
 
 
-function MovieTimeButton({time,movieData}:{time:string,movieData:any}) {
+interface MovieData {
+    title: string;
+    description: string;
+    imageURL: string;
+    durationMinutes: number;
+    ShowtimeResponse: ShowTime[];
+}
+
+function MovieTimeButton({time,movieData}:{time:string,movieData:MovieData}) {
 
     const [light,setLight] = useState<boolean>(false)
 

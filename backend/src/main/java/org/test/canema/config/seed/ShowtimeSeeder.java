@@ -61,9 +61,18 @@ public class ShowtimeSeeder {
             showtime3.setStartTime(today.withHour(18).withMinute(0).plusDays(1));
             showtime3.setEndTime(showtime3.getStartTime().plusMinutes(movie3.getDurationMinutes()));
 
+            Showtime showTime4 = new Showtime();
+            showTime4.setHall(hall1);
+            showTime4.setMovie(movie1);
+            showTime4.setPrice(new BigDecimal(12));
+            showTime4.setStartTime(today.withHour(21).withMinute(0));
+            showTime4.setEndTime(showTime4.getStartTime().plusMinutes(movie1.getDurationMinutes()));
+
+
             showtimeRepository.save(showtime1);
             showtimeRepository.save(showtime2);
             showtimeRepository.save(showtime3);
+            showtimeRepository.save(showTime4);
 
         }
     }

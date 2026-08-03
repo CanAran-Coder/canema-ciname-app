@@ -20,7 +20,7 @@ function Events() {
         description: string
         durationMinutes: number
         imageURL: string
-        showTime: ShowTime[]
+        ShowtimeResponse: ShowTime[]
 
     }
 
@@ -46,6 +46,7 @@ function Events() {
 
         if (selectedDay == undefined) return;
         getMoviesByDate(selectedDay).then(data => setMovies(data))
+        console.log(movies)
 
     }, [selectedDay])
 
@@ -73,7 +74,7 @@ function Events() {
             <div className="grid grid-rows-3 border-t border-white p-2 h-full overflow-y-auto">
 
 
-                {movies?.map((item) => (<Event_Movie_Item key={item.id} data={item} />))}
+                {movies?.map((item) => (<Event_Movie_Item key={item.title} data={item} />))}
 
 
 

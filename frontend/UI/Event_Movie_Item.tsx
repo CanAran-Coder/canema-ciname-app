@@ -17,7 +17,7 @@ interface MovieData{
     description:string
     durationMinutes:number
     imageURL:string
-    showTime:ShowTime[]
+    ShowtimeResponse:ShowTime[]
 
 }
 
@@ -46,7 +46,7 @@ function Event_Movie_Item({data}:{data:MovieData}) {
             <div className='w-full h-full grid grid-rows-[4fr_1fr] place-items-center'>
                 <p className='text-white text-xl text-center'>{data.description}</p>
                 <div className='flex gap-5 justify-center items-center'>
-                    {data.showTime.map((item)=>(<MovieTimeButton key={item.id} time={item.startTime} movieData={data}/>))}
+                    {data.ShowtimeResponse.map((item,index)=>(<MovieTimeButton key={index} time={item.startTime} movieData={data}/>))}
                 </div>
                 
             </div>
