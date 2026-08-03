@@ -8,6 +8,5 @@ import java.util.List;
 
 public interface MovieService {
     public List<MovieWithShowtimeResponse> getMoviesByDate(String Date);
-    public ResponseEntity<String> deleteMovie(Long id);
-    public ResponseEntity<String> addMovie(Movie movie);
+
 }

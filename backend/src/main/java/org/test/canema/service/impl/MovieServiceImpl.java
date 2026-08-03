@@ -43,6 +43,7 @@ public class MovieServiceImpl implements MovieService {
 
         List<Showtime> ShowtimeData = showtimeRepository.findAllByStartTimeBetweenWithMovieAndHall(start, end);
         Map<Movie,List<Showtime>> showTimesByMovie = ShowtimeData.stream().collect(Collectors.groupingBy(Showtime::getMovie));
+
         List<MovieWithShowtimeResponse> responseList = new ArrayList<>();
 
         for (Map.Entry<Movie, List<Showtime>> entry : showTimesByMovie.entrySet()) {
@@ -70,31 +71,9 @@ public class MovieServiceImpl implements MovieService {
         return responseList;
     }
 
-    @Override
-    @Transactional
-    @CacheEvict(value = {"moviesByDate","allMovies"},allEntries = true)
-    public ResponseEntity<String> deleteMovie(Long id) {
-        Long response =  movieRepository.removeById(id);
-        if (response == 0) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-
-        }
-        return ResponseEntity.ok().build();
 
 
 
-    }
 
-    @Override
-    @CacheEvict(value = {"moviesByDate","allMovies"},allEntries = true)
-    public ResponseEntity<String> addMovie(Movie movie) {
 
-            var response = movieRepository.save(movie);
-            if(response.getId() != null) {
-                return ResponseEntity.status(HttpStatus.CREATED).build();
-
-            }
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-
-    }
 }

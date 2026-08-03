@@ -11,7 +11,5 @@ import java.util.List;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie,Long> {
 
-    List<MovieWithShowtimeResponse> findDistinctByShowTimeBetween(LocalDateTime start, LocalDateTime end);
 
-    long removeById(Long id);
 }

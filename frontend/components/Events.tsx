@@ -5,21 +5,24 @@ import { FaCalendarDays } from "react-icons/fa6";
 function Events() {
 
     const [days, setDays] = useState<string[]>([]);
-    const [selectedDay,setSelectedDay] = useState<string>(days[0])
-    const [movies,setMovies] = useState<MovieData[]>();
+    const [selectedDay, setSelectedDay] = useState<string>(days[0])
+    const [movies, setMovies] = useState<MovieData[]>();
 
-    interface MovieData{
-    id:number
-    title:string
-    description:string
-    durationMinutes:number
-    hallName:string
-    imageURL:string
-    price:number
-    totalSeats:number
-    showTime:string[]
+    interface ShowTime {
+        id: number,
+        startTime: string,
+        price: number,
+        hallName: string
+    }
+    interface MovieData {
+        id: number
+        title: string
+        description: string
+        durationMinutes: number
+        imageURL: string
+        showTime: ShowTime[]
 
-}
+    }
 
     useEffect(() => {
         const next14Days = [];
@@ -39,16 +42,15 @@ function Events() {
         setDays(next14Days);
         setSelectedDay(next14Days[0])
     }, []);
-    useEffect(()=>{
+    useEffect(() => {
 
-        if(selectedDay == undefined) return;
+        if (selectedDay == undefined) return;
         getMoviesByDate(selectedDay).then(data => setMovies(data))
-        
-   
-    },[selectedDay])
+
+    }, [selectedDay])
 
 
-  
+
 
     async function getMoviesByDate(date: string) {
         const res = await fetch(`http://localhost:8080/api/movies/byDate/${date}`);
@@ -71,7 +73,7 @@ function Events() {
             <div className="grid grid-rows-3 border-t border-white p-2 h-full overflow-y-auto">
 
 
-                {movies?.map((item)=>(<Event_Movie_Item key={item.id} data={item} />))}
+                {movies?.map((item) => (<Event_Movie_Item key={item.id} data={item} />))}
 
 
 

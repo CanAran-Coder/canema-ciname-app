@@ -1,8 +1,10 @@
 import MovieSlider from "./MovieSlider";
+
 async function HomeSlider() {
+    const today = new Date().toISOString().split('T')[0];
 
     async function fetchMovies(){
-        const res = await fetch("http://localhost:8080/api/movies/getMovies", {cache: 'no-store'});
+        const res = await fetch(`http://localhost:8080/api/movies/byDate/${today}`, {cache: 'no-store'});
         if (!res.ok) {
             throw new Error("Failed to fetch data");
         }

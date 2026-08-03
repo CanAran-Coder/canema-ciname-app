@@ -11,11 +11,8 @@ public class Hall {
     private Long id;
     @Column(nullable = false, unique = true)
     private String name;
-    @Column(nullable = false)
-    private Integer capacity;
     @Column(name = "total_rows")
     private Integer totalRows;
     @Column(name = "seats_per_row")
     private Integer seatsPerRow;
-
 }

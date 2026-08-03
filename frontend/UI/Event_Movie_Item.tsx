@@ -4,16 +4,20 @@ import MovieTimeButton from './MovieTimeButton';
 import { useState } from "react";
 import FilmDeleteSure from "@/components/FilmDeleteSure";
 
+interface ShowTime{
+    id:number,
+    startTime:string,
+    price:number,
+    hallName:string
+}
+
 interface MovieData{
     id:number
     title:string
     description:string
     durationMinutes:number
-    hallName:string
     imageURL:string
-    price:number
-    totalSeats:number
-    showTime:string[]
+    showTime:ShowTime[]
 
 }
 
@@ -42,7 +46,7 @@ function Event_Movie_Item({data}:{data:MovieData}) {
             <div className='w-full h-full grid grid-rows-[4fr_1fr] place-items-center'>
                 <p className='text-white text-xl text-center'>{data.description}</p>
                 <div className='flex gap-5 justify-center items-center'>
-                    {data.showTime.map((item)=>(<MovieTimeButton key={item} time={item} movieData={data}/>))}
+                    {data.showTime.map((item)=>(<MovieTimeButton key={item.id} time={item.startTime} movieData={data}/>))}
                 </div>
                 
             </div>
