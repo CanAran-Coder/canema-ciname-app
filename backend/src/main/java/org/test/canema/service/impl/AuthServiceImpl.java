@@ -1,6 +1,7 @@
 package org.test.canema.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import java.time.Duration;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
@@ -30,7 +32,9 @@ public class AuthServiceImpl implements AuthService {
     public ResponseEntity<String> register(AuthRequest authRequest) {
 
         if(userRepository.existsByEmail(authRequest.email())){
+            log.error("Email already exists");
             throw new RuntimeException("Email already exists");
+
 
         }
 
@@ -45,7 +49,7 @@ public class AuthServiceImpl implements AuthService {
                 .maxAge(Duration.ofDays(1))
                 .sameSite("Lax")
                 .build();
-
+        log.info("Login Success:{}",user.getEmail());
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE,cookie.toString()).body("Login Successfully!");
 
     }
@@ -59,7 +63,6 @@ public class AuthServiceImpl implements AuthService {
                 .sameSite("Lax")
                 .secure(false)
                 .build();
-
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE,cookie.toString()).body("Logged Out Successfully!");
 
     }
@@ -69,6 +72,7 @@ public class AuthServiceImpl implements AuthService {
     public ResponseEntity<String> login(AuthRequest authRequest) {
         User user = userRepository.findByEmail(authRequest.email()).orElseThrow(()-> new RuntimeException("User not found!"));
         if(!passwordEncoder.matches(authRequest.password(),user.getPassword())){
+            log.warn("Wrong password:{}",authRequest.email());
             throw new RuntimeException("Wrong password!");
         }
         String token  = jwtService.generateToken(user.getEmail(),user.getRole().name());

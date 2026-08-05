@@ -4,7 +4,7 @@ package org.test.canema.controller;
 
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize; // ✅ Spring Security paketi
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.test.canema.dto.response.MovieWithShowtimeResponse;
 import org.test.canema.entity.Movie;
@@ -31,7 +31,7 @@ public class MovieController {
     public List<MovieWithShowtimeResponse> getMoviesByDate(@PathVariable String date) {
         return movieService.getMoviesByDate(date);
     }
-    
+
 
 
 }

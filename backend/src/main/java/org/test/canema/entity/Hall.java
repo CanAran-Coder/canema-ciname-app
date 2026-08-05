@@ -1,10 +1,14 @@
 package org.test.canema.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Hall {
     private static final long serialVersionUID = 1L;
     @Id

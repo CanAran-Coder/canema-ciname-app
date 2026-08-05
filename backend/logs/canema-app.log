@@ -1,0 +1,257 @@
+2026-08-05T11:21:55.379+03:00  INFO 60751 --- [Canema] [main] org.test.canema.CanemaApplication        : Starting CanemaApplication using Java 24.0.2 with PID 60751 (/Users/canaran/Desktop/canema-fullstack/backend/target/classes started by canaran in /Users/canaran/Desktop/canema-fullstack/backend)
+2026-08-05T11:21:55.380+03:00  INFO 60751 --- [Canema] [main] org.test.canema.CanemaApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-05T11:21:55.697+03:00  INFO 60751 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T11:21:55.698+03:00  INFO 60751 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-05T11:21:55.765+03:00  INFO 60751 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 6 JPA repository interfaces.
+2026-08-05T11:21:55.775+03:00  INFO 60751 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T11:21:55.775+03:00  INFO 60751 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T11:21:55.782+03:00  INFO 60751 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.HallRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:21:55.782+03:00  INFO 60751 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.MovieRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:21:55.782+03:00  INFO 60751 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.SeatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:21:55.782+03:00  INFO 60751 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.ShowtimeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:21:55.782+03:00  INFO 60751 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.TicketRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:21:55.783+03:00  INFO 60751 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:21:55.783+03:00  INFO 60751 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-05T11:21:56.034+03:00  INFO 60751 --- [Canema] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-08-05T11:21:56.040+03:00  INFO 60751 --- [Canema] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-05T11:21:56.041+03:00  INFO 60751 --- [Canema] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-05T11:21:56.056+03:00  INFO 60751 --- [Canema] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 656 ms
+2026-08-05T11:21:56.114+03:00  WARN 60751 --- [Canema] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-05T11:21:56.284+03:00  INFO 60751 --- [Canema] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-05T11:21:56.309+03:00  INFO 60751 --- [Canema] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-05T11:21:56.469+03:00  INFO 60751 --- [Canema] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-05T11:21:56.482+03:00  INFO 60751 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-05T11:21:56.555+03:00  INFO 60751 --- [Canema] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@14624acc
+2026-08-05T11:21:56.555+03:00  INFO 60751 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-05T11:21:56.591+03:00  INFO 60751 --- [Canema] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/canema_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: canema_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-05T11:21:57.062+03:00  INFO 60751 --- [Canema] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-05T11:21:57.115+03:00  INFO 60751 --- [Canema] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T11:21:57.162+03:00  INFO 60751 --- [Canema] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-05T11:21:57.680+03:00  WARN 60751 --- [Canema] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-05T11:21:57.739+03:00  WARN 60751 --- [Canema] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9f4de0d3-c7c0-48b1-a47b-681e3122644e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-05T11:21:57.743+03:00  INFO 60751 --- [Canema] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-08-05T11:21:58.130+03:00  INFO 60751 --- [Canema] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-08-05T11:21:58.134+03:00  INFO 60751 --- [Canema] [main] org.test.canema.CanemaApplication        : Started CanemaApplication in 2.921 seconds (process running for 3.228)
+2026-08-05T11:25:22.575+03:00  INFO 60751 --- [Canema] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-05T11:25:22.578+03:00  INFO 60751 --- [Canema] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-05T11:25:22.586+03:00  INFO 60751 --- [Canema] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T11:25:22.615+03:00  INFO 60751 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-05T11:25:22.616+03:00  INFO 60751 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-05T11:25:24.482+03:00  INFO 61321 --- [Canema] [main] org.test.canema.CanemaApplication        : Starting CanemaApplication using Java 24.0.2 with PID 61321 (/Users/canaran/Desktop/canema-fullstack/backend/target/classes started by canaran in /Users/canaran/Desktop/canema-fullstack/backend)
+2026-08-05T11:25:24.484+03:00  INFO 61321 --- [Canema] [main] org.test.canema.CanemaApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-05T11:25:24.790+03:00  INFO 61321 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T11:25:24.791+03:00  INFO 61321 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-05T11:25:24.865+03:00  INFO 61321 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
+2026-08-05T11:25:24.873+03:00  INFO 61321 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T11:25:24.874+03:00  INFO 61321 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T11:25:24.880+03:00  INFO 61321 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.HallRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:25:24.880+03:00  INFO 61321 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.MovieRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:25:24.880+03:00  INFO 61321 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.SeatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:25:24.881+03:00  INFO 61321 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.ShowtimeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:25:24.881+03:00  INFO 61321 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.TicketRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:25:24.881+03:00  INFO 61321 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:25:24.881+03:00  INFO 61321 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-05T11:25:25.136+03:00  INFO 61321 --- [Canema] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-08-05T11:25:25.142+03:00  INFO 61321 --- [Canema] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-05T11:25:25.142+03:00  INFO 61321 --- [Canema] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-05T11:25:25.158+03:00  INFO 61321 --- [Canema] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 657 ms
+2026-08-05T11:25:25.217+03:00  WARN 61321 --- [Canema] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-05T11:25:25.384+03:00  INFO 61321 --- [Canema] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-05T11:25:25.407+03:00  INFO 61321 --- [Canema] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-05T11:25:25.569+03:00  INFO 61321 --- [Canema] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-05T11:25:25.581+03:00  INFO 61321 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-05T11:25:25.653+03:00  INFO 61321 --- [Canema] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@656302c
+2026-08-05T11:25:25.654+03:00  INFO 61321 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-05T11:25:25.689+03:00  INFO 61321 --- [Canema] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/canema_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: canema_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-05T11:25:26.233+03:00  INFO 61321 --- [Canema] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-05T11:25:26.286+03:00  INFO 61321 --- [Canema] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T11:25:26.335+03:00  INFO 61321 --- [Canema] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-05T11:25:26.853+03:00  WARN 61321 --- [Canema] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-05T11:25:26.913+03:00  WARN 61321 --- [Canema] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4d9144a9-543b-4220-abd1-785224c59e5c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-05T11:25:26.917+03:00  INFO 61321 --- [Canema] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-08-05T11:25:27.307+03:00  INFO 61321 --- [Canema] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-08-05T11:25:27.311+03:00  INFO 61321 --- [Canema] [main] org.test.canema.CanemaApplication        : Started CanemaApplication in 2.999 seconds (process running for 3.359)
+2026-08-05T11:26:16.360+03:00  INFO 61321 --- [Canema] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-05T11:26:16.363+03:00  INFO 61321 --- [Canema] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-05T11:26:16.370+03:00  INFO 61321 --- [Canema] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T11:26:16.396+03:00  INFO 61321 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-05T11:26:16.397+03:00  INFO 61321 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-05T11:26:18.291+03:00  INFO 61465 --- [Canema] [main] org.test.canema.CanemaApplication        : Starting CanemaApplication using Java 24.0.2 with PID 61465 (/Users/canaran/Desktop/canema-fullstack/backend/target/classes started by canaran in /Users/canaran/Desktop/canema-fullstack/backend)
+2026-08-05T11:26:18.292+03:00  INFO 61465 --- [Canema] [main] org.test.canema.CanemaApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-05T11:26:18.600+03:00  INFO 61465 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T11:26:18.601+03:00  INFO 61465 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-05T11:26:18.671+03:00  INFO 61465 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
+2026-08-05T11:26:18.679+03:00  INFO 61465 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T11:26:18.680+03:00  INFO 61465 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T11:26:18.686+03:00  INFO 61465 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.HallRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:26:18.686+03:00  INFO 61465 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.MovieRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:26:18.686+03:00  INFO 61465 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.SeatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:26:18.686+03:00  INFO 61465 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.ShowtimeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:26:18.686+03:00  INFO 61465 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.TicketRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:26:18.686+03:00  INFO 61465 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T11:26:18.687+03:00  INFO 61465 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-05T11:26:18.943+03:00  INFO 61465 --- [Canema] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-08-05T11:26:18.949+03:00  INFO 61465 --- [Canema] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-05T11:26:18.949+03:00  INFO 61465 --- [Canema] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-05T11:26:18.965+03:00  INFO 61465 --- [Canema] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 656 ms
+2026-08-05T11:26:19.023+03:00  WARN 61465 --- [Canema] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-05T11:26:19.185+03:00  INFO 61465 --- [Canema] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-05T11:26:19.208+03:00  INFO 61465 --- [Canema] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-05T11:26:19.369+03:00  INFO 61465 --- [Canema] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-05T11:26:19.382+03:00  INFO 61465 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-05T11:26:19.457+03:00  INFO 61465 --- [Canema] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3c271988
+2026-08-05T11:26:19.458+03:00  INFO 61465 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-05T11:26:19.490+03:00  INFO 61465 --- [Canema] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/canema_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: canema_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-05T11:26:19.923+03:00  INFO 61465 --- [Canema] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-05T11:26:19.969+03:00  INFO 61465 --- [Canema] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T11:26:20.018+03:00  INFO 61465 --- [Canema] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-05T11:26:20.514+03:00  WARN 61465 --- [Canema] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-05T11:26:20.574+03:00  WARN 61465 --- [Canema] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 503b2cd5-1243-4838-afdc-ada4868f9f5b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-05T11:26:20.579+03:00  INFO 61465 --- [Canema] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-08-05T11:26:20.962+03:00  INFO 61465 --- [Canema] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-08-05T11:26:20.966+03:00  INFO 61465 --- [Canema] [main] org.test.canema.CanemaApplication        : Started CanemaApplication in 2.847 seconds (process running for 3.135)
+2026-08-05T11:27:16.212+03:00  INFO 61465 --- [Canema] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-05T11:27:16.213+03:00  INFO 61465 --- [Canema] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-05T11:27:16.215+03:00  INFO 61465 --- [Canema] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-08-05T11:27:16.408+03:00  WARN 61465 --- [Canema] [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-08-05T11:27:16.408+03:00  WARN 61465 --- [Canema] [http-nio-8080-exec-2] o.t.canema.service.impl.AuthServiceImpl  : Wrong password:canaran26@gmail.com
+2026-08-05T11:27:16.409+03:00 ERROR 61465 --- [Canema] [http-nio-8080-exec-2] o.t.c.exception.GlobalExceptionHandler   : Wrong password!
+2026-08-05T11:34:37.571+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m17s981ms).
+2026-08-05T12:50:21.096+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m43s286ms).
+2026-08-05T13:00:17.369+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s237ms).
+2026-08-05T13:05:00.049+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m42s659ms).
+2026-08-05T13:22:28.259+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m28s211ms).
+2026-08-05T13:46:02.335+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m34s76ms).
+2026-08-05T14:00:59.717+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m57s301ms).
+2026-08-05T14:29:23.984+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m24s131ms).
+2026-08-05T14:30:58.324+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m34s340ms).
+2026-08-05T14:33:34.620+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m36s296ms).
+2026-08-05T14:35:14.334+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m39s714ms).
+2026-08-05T14:37:41.942+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m27s608ms).
+2026-08-05T14:40:12.106+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m30s164ms).
+2026-08-05T14:42:39.281+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m27s175ms).
+2026-08-05T14:45:04.383+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m25s102ms).
+2026-08-05T14:47:02.871+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m58s488ms).
+2026-08-05T14:49:04.556+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m1s685ms).
+2026-08-05T14:51:19.689+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m15s133ms).
+2026-08-05T14:53:21.281+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m1s592ms).
+2026-08-05T14:55:48.284+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m27s3ms).
+2026-08-05T14:57:12.266+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m23s982ms).
+2026-08-05T14:59:42.354+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m30s87ms).
+2026-08-05T15:02:06.437+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m24s84ms).
+2026-08-05T15:03:17.607+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m11s170ms).
+2026-08-05T15:05:47.688+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m30s81ms).
+2026-08-05T15:07:31.006+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m43s318ms).
+2026-08-05T15:09:41.709+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m10s703ms).
+2026-08-05T15:11:34.176+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m52s467ms).
+2026-08-05T15:12:43.039+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m8s863ms).
+2026-08-05T15:15:16.328+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m33s289ms).
+2026-08-05T15:17:05.881+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m49s552ms).
+2026-08-05T15:18:29.872+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m23s992ms).
+2026-08-05T15:20:06.542+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m36s669ms).
+2026-08-05T15:22:25.871+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m19s330ms).
+2026-08-05T15:24:05.236+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m39s365ms).
+2026-08-05T15:26:13.962+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m8s726ms).
+2026-08-05T15:28:40.973+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m27s11ms).
+2026-08-05T15:31:05.014+03:00  WARN 61465 --- [Canema] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m24s41ms).
+2026-08-05T16:21:48.722+03:00  INFO 67797 --- [Canema] [main] org.test.canema.CanemaApplicationTests   : Starting CanemaApplicationTests using Java 24.0.2 with PID 67797 (started by canaran in /Users/canaran/Desktop/canema-fullstack/backend)
+2026-08-05T16:21:48.723+03:00  INFO 67797 --- [Canema] [main] org.test.canema.CanemaApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2026-08-05T16:21:49.049+03:00  INFO 67797 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T16:21:49.050+03:00  INFO 67797 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-05T16:21:49.129+03:00  INFO 67797 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 6 JPA repository interfaces.
+2026-08-05T16:21:49.138+03:00  INFO 67797 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T16:21:49.139+03:00  INFO 67797 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T16:21:49.146+03:00  INFO 67797 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.HallRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T16:21:49.146+03:00  INFO 67797 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.MovieRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T16:21:49.146+03:00  INFO 67797 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.SeatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T16:21:49.146+03:00  INFO 67797 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.ShowtimeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T16:21:49.147+03:00  INFO 67797 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.TicketRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T16:21:49.147+03:00  INFO 67797 --- [Canema] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.test.canema.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-05T16:21:49.147+03:00  INFO 67797 --- [Canema] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-08-05T16:21:49.377+03:00  WARN 67797 --- [Canema] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-05T16:21:49.553+03:00  INFO 67797 --- [Canema] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-05T16:21:49.579+03:00  INFO 67797 --- [Canema] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-05T16:21:49.762+03:00  INFO 67797 --- [Canema] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-05T16:21:49.776+03:00  INFO 67797 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-05T16:21:49.866+03:00  INFO 67797 --- [Canema] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13731ff4
+2026-08-05T16:21:49.867+03:00  INFO 67797 --- [Canema] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-05T16:21:49.905+03:00  INFO 67797 --- [Canema] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/canema_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: canema_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-05T16:21:50.360+03:00  INFO 67797 --- [Canema] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-05T16:21:50.422+03:00  INFO 67797 --- [Canema] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T16:21:50.476+03:00  INFO 67797 --- [Canema] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-05T16:21:50.933+03:00  WARN 67797 --- [Canema] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-05T16:21:50.995+03:00  WARN 67797 --- [Canema] [main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 89031836-03d8-4ee9-b762-50fff310431d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-05T16:21:51.000+03:00  INFO 67797 --- [Canema] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-08-05T16:21:51.313+03:00  INFO 67797 --- [Canema] [main] org.test.canema.CanemaApplicationTests   : Started CanemaApplicationTests in 2.726 seconds (process running for 3.222)
+2026-08-05T16:21:52.093+03:00  INFO 67797 --- [Canema] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T16:21:52.114+03:00  INFO 67797 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-05T16:21:52.116+03:00  INFO 67797 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-05T16:22:07.774+03:00  INFO 61465 --- [Canema] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-05T16:22:07.778+03:00  INFO 61465 --- [Canema] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-05T16:22:07.786+03:00  INFO 61465 --- [Canema] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-05T16:22:07.798+03:00  INFO 61465 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-05T16:22:07.799+03:00  INFO 61465 --- [Canema] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
