@@ -66,19 +66,14 @@ export default function MovieSlider({ movies = [] }: { movies: MovieData[] }) {
                 
 
                 <div className="flex flex-wrap items-center gap-4 md:gap-6 text-base md:text-lg font-medium text-gray-200">
-                  <span className="bg-white text-black font-bold px-4 py-1.5 rounded-md text-base">
-                    {movie.hallName}
-                  </span>
-                  <span>{movie.durationMinutes} Min</span>
-                  <span>{movie.price} $</span>
-                  <span className="text-gray-300">
+                  <span className='text-white font-bold'>{movie.durationMinutes} Min</span>
+                
+                  <span className="text-white font-bold">
                     Today
                   </span>
 
                   
-                  <button className="ml-2 bg-white hover:bg-gray-200 text-black font-bold text-base md:text-lg py-2.5 px-6 rounded-md transition-all duration-200 shadow-md hover:scale-105 cursor-pointer">
-                    Buy Tickets
-                  </button>
+                  
                 </div>
 
               </div>
