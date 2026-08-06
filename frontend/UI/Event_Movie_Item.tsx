@@ -42,7 +42,7 @@ function Event_Movie_Item({ data }: { data: MovieData }) {
 
             <div className='flex flex-col  items-center gap-2'>
                 <h1 className='text-white text-2xl border-b border-white'>{data.title}</h1>
-                <div className='w-full relative customShadow h-full rounded border-1 customShadow border-white '><Image fill src={data.imageURL} className="customShadow rounded" alt={data.title}></Image></div>
+                <div className='w-full relative customShadow h-full rounded border-1 customShadow border-white '><Image fill src={data.imageURL} className="customShadow rounded object-contain" alt={data.title}></Image></div>
             </div>
 
 

@@ -7,9 +7,13 @@ import org.test.canema.entity.Movie;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie,Long> {
 
+    Optional<Movie> getMovieByTitle(String title);
 
+
+    Optional<Movie> findByTitle(String title);
 }

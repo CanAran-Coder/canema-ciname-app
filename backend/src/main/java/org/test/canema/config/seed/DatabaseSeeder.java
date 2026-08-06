@@ -4,13 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class DatabaseSeeder implements CommandLineRunner {
 
     private final HallAndSeatSeeder hallAndSeatSeeder;
     private final MovieSeeder movieSeeder;
-    private final UserSeeder userSeeder;
     private final ShowtimeSeeder showtimeSeeder;
 
 
@@ -19,6 +18,5 @@ public class DatabaseSeeder implements CommandLineRunner {
         movieSeeder.seed();
         hallAndSeatSeeder.seed();
         showtimeSeeder.seed();
-        userSeeder.seed();
     }
 }

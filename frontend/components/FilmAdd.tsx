@@ -59,7 +59,7 @@ function FilmAdd({ setLight, setLoading, loading }: { setLight: any, loading: bo
 
         }
 
-            const backendRequest = await fetch("http://localhost:8080/api/movies/addMovie", { method: "POST", body:JSON.stringify(MovieData),headers:{"Content-Type":"application/json"},credentials:"include"})
+            const backendRequest = await fetch("http://localhost:8080/api/showTime/addShowTime", { method: "POST", body:JSON.stringify(MovieData),headers:{"Content-Type":"application/json"},credentials:"include"})
             
             if(backendRequest.ok){
                 toast.success("Movie Added Successfully!")
@@ -106,8 +106,6 @@ function FilmAdd({ setLight, setLoading, loading }: { setLight: any, loading: bo
                         <input type="number" className="border-2 border-white rounded w-full h-8 text-center text-white text-xl" name="duration" />
                         <label className="text-white text-2xl w-full  text-start">Hall:</label>
                         <input className="border-2 border-white rounded w-full h-8 text-center text-white text-xl" name="hall" />
-                        <label className="text-white text-2xl w-full  text-start">Total Seats:</label>
-                        <input type="number" className="border-2 border-white rounded w-full h-8 text-center text-white text-xl" name="totalSeats" />
                         <label className="text-white text-2xl w-full  text-start">Price:</label>
                         <input type="number" className="border-2 border-white rounded w-full h-8 text-center text-white text-xl" name="price" />
                         <label className="text-white text-2xl w-full  text-start">Image:</label>
