@@ -1,6 +1,7 @@
 package org.test.canema.controller;
 
 import com.iyzipay.model.Payment;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +13,19 @@ import org.test.canema.dto.response.PaymentResponse;
 import org.test.canema.service.impl.PaymentService;
 
 @RestController
-@RequestMapping("/api/payment")
+@RequestMapping("/api/payment/normalPayment")
 @RequiredArgsConstructor
 public class PaymentController {
 
-    private final PaymentService paymentService;
+   private final PaymentService paymentService;
 
+
+    @PostMapping
+    public PaymentResponse normalPayment(@Valid @RequestBody PaymentRequest request){
+        return paymentService.normalPayment(request);
+    }
+
+        /*
     @PostMapping
     public ResponseEntity<PaymentResponse> doPayment(@RequestBody PaymentRequest request){
         Payment payment = paymentService.processPayment(request);
@@ -27,4 +35,8 @@ public class PaymentController {
         return ResponseEntity.ok(paymentResponse);
 
     }
+ */
+
+
 }
+

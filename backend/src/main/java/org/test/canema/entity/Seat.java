@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Seat {
+public class Seat extends SoftDeleteEntity  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

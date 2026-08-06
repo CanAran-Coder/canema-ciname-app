@@ -8,7 +8,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.test.canema.dto.request.PaymentRequest;
+import org.test.canema.dto.response.PaymentResponse;
 import org.test.canema.entity.*;
+import org.test.canema.exception.error.ResourceNotFoundException;
 import org.test.canema.repository.*;
 
 import java.math.BigDecimal;
@@ -31,7 +33,7 @@ public class PaymentService {
     private final ShowtimeRepository showtimeRepository;
     private final TicketRepository ticketRepository;
 
-    public Payment processPayment(PaymentRequest payment) {
+   /* public Payment processPayment(PaymentRequest payment) {
         Showtime showtime = showtimeRepository.findById(payment.showTimeId())
                 .orElseThrow(() -> new RuntimeException("Gösterim saati (Showtime) bulunamadı. ID: " + payment.showTimeId()));
 
@@ -144,5 +146,47 @@ public class PaymentService {
         }
 
         return response;
+    }
+
+   */
+
+    public PaymentResponse normalPayment(PaymentRequest request) {
+        List<String> seats = request.seatNumbers();
+        Optional<Showtime> showtime = showtimeRepository.findById(request.showTimeId());
+        Optional<User> user = userRepository.findByEmail(request.userMail());
+        PaymentResponse paymentResponse;
+
+        for (String item : seats) {
+            Optional<Seat> seat = seatRepository.findBySeatNumberAndHallId(Integer.valueOf(item),showtime.get().getHall().getId());
+
+            Ticket ticket = new Ticket();
+            if (user.isPresent()) {
+                ticket.setUser(user.get());
+            } else {
+                throw new ResourceNotFoundException("User Not Found!");
+
+            }
+            ticket.setPaymentId(String.valueOf(LocalDateTime.now()));
+            if (showtime.isPresent()){
+                ticket.setPrice(showtime.get().getPrice());
+                ticket.setShowtime(showtime.get());
+            }else{
+                throw new  ResourceNotFoundException("Showtime not found!");
+            }
+
+
+            if (seat.isPresent()) {
+                ticket.setSeat(seat.get());
+            }
+            else{
+                throw new ResourceNotFoundException("Seat Not Found!");
+            }
+            var response = ticketRepository.save(ticket);
+            log.info("Ticket Added Successfully:{}", ticket.getPaymentId());
+
+
+        }
+        paymentResponse = new PaymentResponse(String.valueOf(user.get().getId()),true);
+        return paymentResponse;
     }
 }

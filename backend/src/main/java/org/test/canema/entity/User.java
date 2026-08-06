@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @Table(name = "users")
 @Builder
-public class User {
+public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +22,7 @@ public class User {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role = Role.ROLE_CUSTOMER;
-
+    @Builder.Default
+    @Column(name = "is_active", nullable = false ,columnDefinition = "boolean default true")
+    private boolean isActive = true;
 }

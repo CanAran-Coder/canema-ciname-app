@@ -30,7 +30,7 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
     const [paymentPage, setPaymentPage] = useState<boolean>(false);
     const [hallInfo, setHallInfo] = useState<{ seats_per_row: number, total_rows: number } | null>(null);
 
-    // 1. SEANS (SHOWTIME) EŞLEŞTİRME VE GARANTİYE ALMA
+
     const timeOnly = date?.includes("T") ? date.split("T")[1].slice(0, 5) : date;
 
     const matchedShowtime = movieData?.ShowtimeResponse?.find(st =>
@@ -40,7 +40,6 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
         date?.endsWith(st.startTime)
     );
 
-    // Bulamazsa listenin ilk elemanını al, o da yoksa varsayılan 1 ver (Görünmez patlamayı önler)
     const activeShowtime = matchedShowtime || movieData?.ShowtimeResponse?.[0] || { id: 1, price: 0, hallName: "Not Available", startTime: "" };
 
     useEffect(() => {
@@ -95,9 +94,9 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                                 <p className="text-2xl text-start flex items-center">Door</p>
                                 <p className="text-2xl justify-center items-center flex">Screen</p>
                                 <p></p>
-                                <button 
+                                <button disabled={!(selectedSeats.length > 0)}
                                     onClick={() => setPaymentPage(true)} 
-                                    className="absolute bottom-0 right-0 border-2 text-xl bg-black hover:brightness-125 cursor-pointer text-white rounded p-2"
+                                    className="absolute bottom-0 disabled:bg-gray-500 right-0 border-2 text-xl bg-black hover:brightness-125 cursor-pointer text-white rounded p-2"
                                 >
                                     Go To Payment
                                 </button>
@@ -123,7 +122,7 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                     <form action={formAction} className="bg-white w-300 h-130 p-2 rounded customShadow grid grid-rows-2 gap-y-2 relative">
                         <RxCross2 onClick={() => setLight(false)} className="absolute top-2 right-2 text-2xl cursor-pointer" />
 
-                        {/* GARANTİLİ GİZLİ GİRDİLER */}
+
                         <input type="hidden" name="seatNumbers" value={JSON.stringify(selectedSeats)} />
                         <input type="hidden" name="showTimeId" value={activeShowtime.id} />
                         <input type="hidden" name="hallName" value={activeShowtime.hallName} />
@@ -139,7 +138,7 @@ function SeatSelection({ date, setLight, movieData }: { setLight: any, movieData
                                 <label className="text-2xl">{movieData.title}</label>
                                 <label className="text-2xl">Date:</label>
                                 <label className="text-2xl">{formattedDate}</label>
-                                <label className="text-2xl">Hall Name:</label>
+                                <label className="text-2xl">Hall:</label>
                                 <label className="text-2xl">{activeShowtime.hallName}</label>
                                 <label className="text-2xl">Seats:</label>
                                 <label className="text-2xl gap-x-2 flex">{selectedSeats.map((item, index) => <p key={index}>{item}</p>)}</label>

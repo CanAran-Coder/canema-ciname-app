@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Hall {
+public class Hall extends SoftDeleteEntity{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +20,6 @@ public class Hall {
     private Integer totalRows;
     @Column(name = "seats_per_row")
     private Integer seatsPerRow;
+    @Column()
+    private boolean isDelete = false;
 }

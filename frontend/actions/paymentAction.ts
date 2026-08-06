@@ -11,6 +11,7 @@ export async function makePayment(prevState: any, formData: FormData) {
             parsedShowTimeId = 1; 
         }
 
+
         const rawData = {
             cardNumber: formData.get("cardNumber"),
             cardMonth: formData.get("cardMonth"),
@@ -24,10 +25,11 @@ export async function makePayment(prevState: any, formData: FormData) {
             hallName: formData.get("hallName") ,
             userMail: formData.get("userMail")
         };
+        console.log("Raw Data to be sent:", rawData);
 
-        console.log("➡️ [Next.js] Backend'e yollanan veri:", rawData);
+        
 
-        const response = await fetch("http://127.0.0.1:8080/api/payment", {
+        const response = await fetch("http://localhost:8080/api/payment/normalPayment", {
             method: "POST",
             body: JSON.stringify(rawData),
             headers: { 
@@ -36,13 +38,18 @@ export async function makePayment(prevState: any, formData: FormData) {
             cache: 'no-store'
         });
 
+        const responseData = await response.json();
+        console.log("Response from server:", responseData);
+
+        if (!response.ok) {
+            throw new Error(`Server responded with status ${response.status}: ${responseData.message || 'Unknown error'}`);
+        }
+
       
 
-        const data = await response.json();
-        return { success: true, message: "Ödeme başarılı!" };
+    
 
     } catch (error: any) {
-        console.error("💥 [Next.js] Exception:", error);
-        return { success: false };
+        console.error("[Next.js] Exception:", error);
     }
 }
