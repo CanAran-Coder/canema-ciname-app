@@ -16,3 +16,5 @@ cat << 'EOF' > .gitignore
 .vscode/
 *.env
 EOF
+backend/logs/
+*.iml
